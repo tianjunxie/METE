@@ -26,7 +26,7 @@ def eval(mols, verbose):
         ### fragmentation at lvl1
         groups_1 = ga2.frag(mol, 1)
         if verbose:
-            print('Groups at GA1: {}'.format(groups_1))
+            print('Groups at Benson Lvl 1: {}'.format(groups_1))
         ### getting json file
         if "Pt" in mol:
             local = './Data/Pt.json'
@@ -88,5 +88,5 @@ def eval(mols, verbose):
                             thermo += np.array(value['raw']) * occur_num
                             # print(key, value['a0'], occur_num)
             output.append((Ho,So,a0,a1,a2,a3,a4,a5,a6))
-            raw.append((thermo))
+            raw.append(thermo.reshape(-1, thermo.shape[-1]))
     return(output, raw)

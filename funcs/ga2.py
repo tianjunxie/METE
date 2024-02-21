@@ -329,15 +329,16 @@ def ml_eval(molecs, verbose):
             gpr = GPR.GPRModel(autosave=False, filename=gprfilename)
             y_pred, std = gpr.predict(X_test)
             if verbose:
-                print('Groups at GA2: {}'.format(text))
+                print('Groups at Benson Lvl 2: {}'.format(text))
             # print("Correction from GPR-GA2: {:.2f} kcal/mol,  STDEV {:.5f} \n".format(float(-y_pred), float(std)))
             ### output name, the full calibration on the thermochesmitry data, Hf0, S0, and Cp@[100,1500] K
             group_out.append(dict(descriptors)) ### groups name and occurance
-            y_out.append(y_pred)
+            y_out.append(y_pred.reshape(-1, y_pred.shape[-1]))
+            # np.append(y_out, [y_pred], axis=0)
         else:
             if verbose:
                 print('No GA2 contributions')
-            group_out, y_out = 0 , 0
+            group_out, y_out = [] , np.zeros(17)
     return(group_out, y_out)
         # ### Save the model
         # ### default is False

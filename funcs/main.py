@@ -198,23 +198,30 @@ def predict(molecs, verbose=False):
 
     ### evaluate at ga lvl1
     nasa9, raw = ga1.eval(molecs, verbose)
-    if verbose: print(np.array(raw))
+    if verbose:
+        for arr in raw:
+            print(np.round(arr, 2))
     # print(np.array(nasa9))
 
     ### evaluate at ga lvl2
     groups_2,y_out = ga2.ml_eval(molecs, verbose)
+    if verbose:
+        for arr in y_out:
+            print(np.round(arr, 2))
     # [print(x) for x in groups_2]
-    ### need to concatenate the ouput
-    if not np.all(y_out == 0):
-        y_out = np.concatenate(y_out)
-    # print(y_out.shape)
+    # ### need to concatenate the ouput
+    # if not np.all(y_out == 0):
+    #     y_out = np.concatenate(y_out,axis=0)
+    #     print(y_out)
 
     ### Adding final calibration onto lvl1
-    y_correct = np.array(raw) +np.array(y_out)
+    # y_correct = np.array(raw) +np.array(y_out)
+    # Perform element-wise addition between corresponding arrays
+    y_correct = [arr1 + arr2 for arr1, arr2 in zip(raw, y_out)]
     # print(y_correct)
     for ind, ele in enumerate(molecs):
         print(ele, *y_correct[ind].round(2))
-
+    return(y_correct)
 
     # ms = Chem.MolFromSmiles(molecs)
     # oin = Draw.MolToImage(ms) ### this returns a PIL object
