@@ -261,8 +261,8 @@ def ml_eval(molecs, verbose):
     )
     ### 13 permittable features for the Ir database
     ga2_ir_features=np.array(
-    ['C(C)(Ir)3', 'C(C)(H)(Ir)2', 'C(C)2(Ir)2', 'C(C)2(H)2', 'O(C)2', 'C(C)(H)2(O)', 'C(C)(O)(Ir)2', 'C(C)2(H)(Ir)', 'C(C)(H)2(Ir)', 'C(C)(H)3', 'O(C)(H)', 'O(=C)', 'O(H)(O)']
-        )
+    ['C(C)(Ir)3', 'C(C)(H)(Ir)2', 'C(C)2(Ir)2', 'C(C)2(H)2', 'O(C)2', 'C(C)(H)2(O)', 'C(C)(O)(Ir)2', 'C(C)2(H)(Ir)', 'C(C)(H)2(Ir)', 'C(C)(H)3', 'O(C)(H)', 'O(=C)', 'O(H)(O)', 'C(C)2(H)(O)', 'C(C)(H)(O)(Ir)', 'C(C)2(=O)', 'C(C)(H)(=O)', 'C(C)2(O)(Ir)', 'C(C)(Ir)(=O)']
+     )
     y_out = []
     group_out = []
     for i in molecs:

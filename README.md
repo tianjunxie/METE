@@ -39,4 +39,4 @@ nasa.plotC()
 
 
 # Citation
-Tianjun Xie, Gerhard R. Wittreich, Matthew T. Curnan, Geun Ho Gub, Kayla N. Seals, Justin S. Tolbert. Journal of Chemical Information and Modeling 2024. Submitted.
+Tianjun Xie, Gerhard R. Wittreich, Matthew T. Curnan, Geun Ho Gu, Kayla N. Seals, Justin S. Tolbert. _Journal of Chemical Information and Modeling_. 2024. Submitted.
